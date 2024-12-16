@@ -110,7 +110,7 @@ if st.session_state.step != "done":
                 st.rerun()
             # Recharger la page pour afficher la question suivante
             else:
-                if steps== "type":
+                if st.session_state.step== "type":
                     model_response = ask_model(
                         f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
                         f"Voici le mots a devnier : Weekend ou nuit hotel"
@@ -118,7 +118,7 @@ if st.session_state.step != "done":
                     )
                     st.error("Non, essayez encore...")
                     st.info(f"💡 Indice : {model_response}")
-                elif steps== "region":
+                elif st.session_state.step== "region":
                     model_response = ask_model(
                     f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
                     f"Voici le mots a devnier : Pays de loire"
@@ -127,7 +127,7 @@ if st.session_state.step != "done":
                     )
                     st.error("Non, essayez encore...")
                     st.info(f"💡 Indice : {model_response}")
-                elif steps== "ville":
+                elif st.session_state.step== "ville":
                     model_response = ask_model(
                     f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
                     f"Voici le mots a devnier : Pornichet"
@@ -136,7 +136,7 @@ if st.session_state.step != "done":
                     )
                     st.error("Non, essayez encore...")
                     st.info(f"💡 Indice : {model_response}")
-                elif steps== "lieu":
+                elif st.session_state.step== "lieu":
                     model_response = ask_model(
                     f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
                     f"Voici le mots a devnier : Chateau des tourelles"
