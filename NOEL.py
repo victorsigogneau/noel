@@ -107,7 +107,8 @@ if st.session_state.step != "done":
                 st.session_state.guesses[st.session_state.step] = user_input
                 st.session_state.step = get_next_step(st.session_state.step)
                 st.session_state.current_input = ""  # Réinitialiser l'entrée
-                st.experimental_rerun()  # Recharger la page pour afficher la question suivante
+                st.rerun()
+            # Recharger la page pour afficher la question suivante
             else:
                 model_response = ask_model(
                     f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
@@ -128,4 +129,4 @@ if st.session_state.step == "done":
         st.session_state.guesses = {}
         st.session_state.history = []
         st.session_state.current_input = ""
-        st.experimental_rerun()
+        st.rerun()
