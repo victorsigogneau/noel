@@ -110,14 +110,43 @@ if st.session_state.step != "done":
                 st.rerun()
             # Recharger la page pour afficher la question suivante
             else:
-                model_response = ask_model(
+                if steps== "type":
+                    model_response = ask_model(
+                        f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
+                        f"Voici le mots a devnier : Weekend ou nuit hotel"
+                        f"Sois créatif et ludique dans ta réponse, mais ne révèle SURTOUT PAS LA REPONSE SINON JE ME FAIS VIRER"
+                    )
+                    st.error("Non, essayez encore...")
+                    st.info(f"💡 Indice : {model_response}")
+                elif steps== "region":
+                    model_response = ask_model(
                     f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
+                    f"Voici le mots a devnier : Pays de loire"
+                    f"Les Pays de la Loire sont une région du Grand Ouest français regroupant les départements de la Loire-Atlantique, de Maine-et-Loire, de la Mayenne, de la Sarthe et de la Vendée. La préfecture de région est Nantes. Bordée à l’ouest par le golfe de Gascogne (océan Atlantique), elle est délimitée au nord par les régions Bretagne et Normandie, à l’est par le Centre-Val de Loire avec qui elle partage la région naturelle du Val de Loire et au sud par la Nouvelle-Aquitaine. La région doit son nom au principal fleuve qui la traverse : la Loire."
+                    f"Sois créatif et ludique dans ta réponse, mais ne révèle SURTOUT PAS LA REPONSE SINON JE ME FAIS VIRER"
+                    )
+                    st.error("Non, essayez encore...")
+                    st.info(f"💡 Indice : {model_response}")
+                elif steps== "ville":
+                    model_response = ask_model(
+                    f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
+                    f"Voici le mots a devnier : Pornichet"
                     f"Pornichet : Pornichet [pɔʁniʃɛ] est une commune de l'Ouest de la France, située dans le département de la Loire-Atlantique, en région Pays de la Loire. Elle fait aussi partie de la Bretagne historique, située en pays Nantais, un des pays traditionnels de Bretagne."
-                    f"""Chateau des tourelles : Le château des Tourelles est un édifice construit en 1868 sur le territoire de la commune de Pornichet, dans le département français de la Loire-Atlantique. Le château appartient depuis 2008 au groupe Phelippeau qui l'a converti en centre de thalassothérapie et en hôtel de luxe. """
-                    f"Sois créatif et ludique dans ta réponse, mais ne révèle pas directement la réponse."
-                )
-                st.error("Non, essayez encore...")
-                st.info(f"💡 Indice : {model_response}")
+                    f"Sois créatif et ludique dans ta réponse, mais ne révèle SURTOUT PAS LA REPONSE SINON JE ME FAIS VIRER"
+                    )
+                    st.error("Non, essayez encore...")
+                    st.info(f"💡 Indice : {model_response}")
+                elif steps== "lieu":
+                    model_response = ask_model(
+                    f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
+                    f"Voici le mots a devnier : Chateau des tourelles"
+                    f"Chateau des tourelles : Le château des Tourelles est un édifice construit en 1868 sur le territoire de la commune de Pornichet, dans le département français de la Loire-Atlantique. Le château appartient depuis 2008 au groupe Phelippeau qui l'a converti en centre de thalassothérapie et en hôtel de luxe."
+                    f"Sois créatif et ludique dans ta réponse, mais ne révèle SURTOUT PAS LA REPONSE SINON JE ME FAIS VIRER"
+                    )
+                    st.error("Non, essayez encore...")
+                    st.info(f"💡 Indice : {model_response}")
+
+
 
 # Résumé final
 if st.session_state.step == "done":
