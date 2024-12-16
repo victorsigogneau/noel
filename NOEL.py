@@ -9,7 +9,7 @@ MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"
 
 # Informations sur le cadeau
 correct_answers = {
-    "type": "week-end/vacances",
+    "type": "Week-end ou nuit hotel",
     "region": "Pays de loire",
     "ville": "pornichet",
     "lieu": "Chateau des tourelles"
@@ -31,7 +31,7 @@ if "step" not in st.session_state:
     st.session_state.current_input = ""
 
 # Titre
-st.title("Devinez votre cadeau de Noël 🎄 avec Hugging Face")
+st.title("Devinez votre cadeau de Noël 🎄")
 
 def format_prompt(message):
     system_prompt = "Tu es un assistant qui aide à vérifier si deux réponses sont similaires."
@@ -112,6 +112,8 @@ if st.session_state.step != "done":
             else:
                 model_response = ask_model(
                     f"L'utilisateur a proposé '{user_input}'. Donne un indice sur {st.session_state.step}: {correct_answers[st.session_state.step]}. "
+                    f"Pornichet : Pornichet [pɔʁniʃɛ] est une commune de l'Ouest de la France, située dans le département de la Loire-Atlantique, en région Pays de la Loire. Elle fait aussi partie de la Bretagne historique, située en pays Nantais, un des pays traditionnels de Bretagne."
+                    f"""Chateau des tourelles : Le château des Tourelles est un édifice construit en 1868 sur le territoire de la commune de Pornichet, dans le département français de la Loire-Atlantique. Le château appartient depuis 2008 au groupe Phelippeau qui l'a converti en centre de thalassothérapie et en hôtel de luxe. """
                     f"Sois créatif et ludique dans ta réponse, mais ne révèle pas directement la réponse."
                 )
                 st.error("Non, essayez encore...")
