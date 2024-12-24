@@ -113,7 +113,7 @@ if st.session_state.step == "done":
     st.balloons()
     st.success("🎉 Félicitations ! Vous avez deviné le cadeau ! 🎁")
     st.write("Récapitulatif de vos réponses :")
-    st.image("https://github.com/victorsigogneau/noel/blob/main/reveal.PNG?raw=true", caption="Chateau des tourelles")
+    st.image("https://github.com/victorsigogneau/noel/blob/main/reveal.png.png?raw=true", caption="Chateau des tourelles")
 
     if st.button("Recommencer le jeu", use_container_width=True):
         st.session_state.step = "type"
